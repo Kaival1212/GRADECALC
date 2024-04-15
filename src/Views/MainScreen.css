@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+
+.App-header{
+    width: 100vw;
+    height: 20vh;
+    background: rgba(7, 76, 255, 0.24);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-family: 'Londrina Shadow', cursive;
+    font-size: 70px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.App-header>div{
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.gradeCalculator{
+    display: flex;
+    width: 80vw;
+    height: auto;
+    background: rgba(217, 217, 217, 1);
+}
+
+.App-header>div:hover,
+.active {
+    background: rgba(62, 85, 140, 1);
+    /*padding: 32px 50px;*/
+}
+
+
+.App-header-1{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 50px;
+    border-right: 1px solid white;
+    padding-right: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    link: none;
+    cursor: pointer;
+
+}
+
+.App-header-logout-btn{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-family:'Londrina Shadow', cursive;
+    background-color: rgba(7, 76, 255, 0.24);
+    margin-right: 10px;
+    font-size: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App-header-logout-btn:hover{
+    background: rgba(7, 76, 255, 0.5);
+}
+
+@media screen  and (max-width: 768px){
+    .App-header-1{
+        font-size: 60px;
+        border: 0;
+    }
+    .App-header-logout-btn{
+        font-size: 20px;
+    }
+
+    .App-header{
+        font-size: 50px;
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0px;
+    }
+
+}
+
+@media screen and (max-width: 1300px){
+    .App-header-1{
+        font-size: 60px;
+        border: 0;
+    }
+    .App-header-logout-btn{
+        font-size: 20px;
+    }
+
+    .App-header{
+        font-size: 50px;
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+}

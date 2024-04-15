@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+
+
+.Header_login {
+    width: 100vw;
+    height: 20vh;
+    background: rgba(7, 76, 255, 0.24);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-family: 'Londrina Shadow', cursive;
+    font-size: 100px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.Header_login_title{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    width: 100%;
+}
+
+.login_main{
+    width: 100vw;
+    height: 80vh;
+    background: rgba(40, 44, 52, 1);;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+}
+
+.login_main>input{
+    width: 500px;
+    height: 63px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+}
+
+
+.login_title{
+    color: white;
+    font-size: 50px;
+    font-family: 'Londrina Shadow', cursive;
+}
+
+.Login_error{
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 20px;
+    background-color:  rgba(255, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
