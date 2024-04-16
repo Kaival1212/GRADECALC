@@ -1,22 +1,7 @@
 import React, {useEffect, useState , useCallback} from "react";
-import {getAuth, signOut} from "firebase/auth";
-import {initializeApp} from "firebase/app";
-import * as db from "@firebase/firestore";
-import {collection, getDocs, getFirestore, deleteDoc, getDoc, doc, setDoc} from "firebase/firestore";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAYlfRlaYlYjkAf6Vwp_kTGjivZfJhCSyE",
-    authDomain: "grade-calculator-62d91.firebaseapp.com",
-    projectId: "grade-calculator-62d91",
-    storageBucket: "grade-calculator-62d91.appspot.com",
-    messagingSenderId: "275217404781",
-    appId: "1:275217404781:web:320b2cf41186166c984064",
-    measurementId: "G-5P5QLFM1SE"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+import { signOut} from "firebase/auth";
+import {collection, getDocs, getFirestore, getDoc, doc, setDoc} from "firebase/firestore";
+import {app,auth} from "../Connection/firebaseConnection";
 
 function StudentPage() {
 
@@ -50,7 +35,7 @@ function StudentPage() {
         } else {
             setUserdata(null);
         }
-    }, [user]);
+    }, [getStudentData, user]);
 
     async function deleteGrade(key) {
         try {

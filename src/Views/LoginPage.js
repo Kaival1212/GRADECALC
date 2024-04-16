@@ -1,25 +1,12 @@
 import React, {useState} from 'react';
-import { getAuth, signInWithEmailAndPassword ,GoogleAuthProvider ,signInWithPopup } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+import { signInWithEmailAndPassword ,GoogleAuthProvider ,signInWithPopup } from "firebase/auth";
 import "./LoginPage.css";
+import {auth} from "../Connection/firebaseConnection";
 import {FaGoogle} from "react-icons/fa";
-import registerPage from "./RegisterPage";
-
 function LoginPage() {
 
     const provider = new GoogleAuthProvider();
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAYlfRlaYlYjkAf6Vwp_kTGjivZfJhCSyE",
-        authDomain: "grade-calculator-62d91.firebaseapp.com",
-        projectId: "grade-calculator-62d91",
-        storageBucket: "grade-calculator-62d91.appspot.com",
-        messagingSenderId: "275217404781",
-        appId: "1:275217404781:web:320b2cf41186166c984064",
-        measurementId: "G-5P5QLFM1SE"
-    };
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -38,16 +25,8 @@ function LoginPage() {
     const SignInWithEmailAndPassword = (auth, email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in
                 const user = userCredential.user;
-                // ...
             })
-            .catch((error) => {
-                document.getElementById("loginError").style.opacity = 1;
-                setTimeout(() => {
-                    document.getElementById("loginError").style.opacity = 0;
-                } , 3000);
-            });
     }
 
     function register(){

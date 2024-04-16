@@ -1,21 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './MainScreen.css';
-import {getAuth, onAuthStateChanged, signOut} from "firebase/auth";
-import {initializeApp} from "firebase/app";
+import { onAuthStateChanged, signOut} from "firebase/auth";
 import {collection, doc, getDoc, getDocs, getFirestore, setDoc,updateDoc} from "firebase/firestore";
+import {app, auth} from "../Connection/firebaseConnection";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAYlfRlaYlYjkAf6Vwp_kTGjivZfJhCSyE",
-    authDomain: "grade-calculator-62d91.firebaseapp.com",
-    projectId: "grade-calculator-62d91",
-    storageBucket: "grade-calculator-62d91.appspot.com",
-    messagingSenderId: "275217404781",
-    appId: "1:275217404781:web:320b2cf41186166c984064",
-    measurementId: "G-5P5QLFM1SE"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 
 function MainScreen(){
@@ -144,7 +132,7 @@ function MainScreen(){
 
     useEffect(() => {
         checkForUser(userColRef, univetrsityColRef);
-    },[user]);
+    },[checkForUser, univetrsityColRef, user, userColRef]);
 
     function handelcouresYear1(index , value){
         setCouresYear1( indi => {
@@ -200,6 +188,9 @@ function MainScreen(){
     }
 
     function addgradeYear2(){
+
+
+
         let grades2 = sortAscending([...gradesYear2]);
         grades2[0] = grades2[0]/2;
 
@@ -216,6 +207,13 @@ function MainScreen(){
         let year1 = addgradeYear1();
         let year2 = addgradeYear2();
 
+        console.log(year1, year2);
+
+
+        if(year1 < 0 || year2 < 0 || year1 > 100 || year2 > 100 || isNaN(year1) || isNaN(year2)){
+            handleNegativeError();
+            return;
+        }
 
         let total = (year1 * 0.20) + (year2 * 0.80);
 

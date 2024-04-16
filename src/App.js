@@ -1,10 +1,9 @@
 import './App.css';
 import LoginPage from './Views/LoginPage';
 import React from 'react';
-import { getAuth } from "firebase/auth";
-import { initializeApp } from "firebase/app";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import {auth} from "./Connection/firebaseConnection";
 //import react router
 import { Routes, Route ,BrowserRouter} from 'react-router-dom';
 import MainScreen from './Views/MainScreen';
@@ -14,18 +13,7 @@ import ProfilePage from "./Views/ProfilePage";
 import RegisterPage from "./Views/RegisterPage";
 
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAYlfRlaYlYjkAf6Vwp_kTGjivZfJhCSyE",
-    authDomain: "grade-calculator-62d91.firebaseapp.com",
-    projectId: "grade-calculator-62d91",
-    storageBucket: "grade-calculator-62d91.appspot.com",
-    messagingSenderId: "275217404781",
-    appId: "1:275217404781:web:320b2cf41186166c984064",
-    measurementId: "G-5P5QLFM1SE"
-};
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 
 function App() {
